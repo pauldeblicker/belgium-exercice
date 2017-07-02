@@ -2,6 +2,31 @@ import json
 import os
 import sys
 
+def check_and_format_args():
+    if len(sys.argv) < 4:
+        print('Missing arguments (expected at least 2)')
+        sys.exit(1)
+
+    file_exist(sys.argv[1])
+    sys.argv[2] = convert_integer(sys.argv[2])
+    file_exist(sys.argv[3])
+
+def file_exist(file_path):
+    if os.path.exists(file_path):
+        return
+
+    print(f'{file_path} doesn\'t exist')
+    sys.exit(1)
+
+def convert_integer(integer):
+    try:
+        converted = int(integer)
+    except ValueError:
+        print(f'{integer} isn\'t an id')
+        sys.exit(1)
+    else:
+        return converted
+
 def get_feature(file_path, feature_id):
     data = get_geojson_data(file_path)
 
@@ -26,6 +51,7 @@ def write_geojson(path, data):
         f.close
 
 if __name__ == '__main__':
-    feature = get_feature(sys.argv[1], int(sys.argv[2]))
+    check_and_format_args()
+    feature = get_feature(sys.argv[1], sys.argv[2])
     new_provinces = add_feature(sys.argv[3], feature)
     write_geojson(os.path.split(sys.argv[3])[1], new_provinces)
