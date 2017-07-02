@@ -3,12 +3,12 @@ import os
 import sys
 
 def get_feature(file_path, feature_id):
-    data = get_geojson_data(os.path.join(file_path))
+    data = get_geojson_data(file_path)
 
     return [f for f in data['features'] if f['id'] == feature_id][0]
 
 def add_feature(file_path, feature):
-    data = get_geojson_data(os.path.join(file_path))
+    data = get_geojson_data(file_path)
 
     data['features'].append(feature)
     return data
