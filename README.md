@@ -28,6 +28,11 @@ Executer le script 'add_feature_to_file' en passant les arguments de la façon s
 
 ```python add_feature_to_file.py [path_to_src_file] [feature_id] [path_to_dest_file]```
 
+C'est-à-dire :
+
+```python add_feature_to_file.py asset/admin_level_4.geojson 54094 asset/admin_level_6.geojson```
+
+
 ### Information utiles
 
 * l'id de la Région de Bruxelles-Capitale est **54094**
