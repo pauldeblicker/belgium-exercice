@@ -1,12 +1,11 @@
 import os
 import sys
 
-def file_exist(file_path):
-    if os.path.exists(file_path):
-        return
-
-    print(f'{file_path} doesn\'t exist')
-    sys.exit(1)
+def files_exist(*paths):
+    for path in paths:
+        if os.path.exists(path) is False:
+            print(f'{path} doesn\'t exist')
+            sys.exit(1)
 
 def convert_integer(integer):
     try:

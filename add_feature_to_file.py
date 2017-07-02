@@ -9,9 +9,8 @@ def check_and_format_args():
         print('Missing arguments (expected at least 2)')
         sys.exit(1)
 
-    std.file_exist(sys.argv[1])
+    std.files_exist(sys.argv[1], sys.argv[3])
     sys.argv[2] = std.convert_integer(sys.argv[2])
-    std.file_exist(sys.argv[3])
 
 def get_feature(file_path, feature_id):
     data = geojson.get_geojson(file_path)
@@ -23,7 +22,7 @@ def add_feature(file_path, feature):
 
     data['features'].append(feature)
     return data
-    
+
 def main():
     check_and_format_args()
     feature = get_feature(sys.argv[1], sys.argv[2])
