@@ -20,7 +20,7 @@ Une fois cette première étape réalisé, j'ai fait en sorte que l'on puisse pa
 
 #### Version
 
-* python <= 3.6.1
+* python >= 3.6.1
 
 ### Utilisation
 
