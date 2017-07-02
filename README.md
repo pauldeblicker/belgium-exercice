@@ -36,5 +36,5 @@ C'est-à-dire :
 ### Information utiles
 
 * l'id de la Région de Bruxelles-Capitale est **54094**
-* Vous trouverez les différents fichier au format geojson dansle dossier asset
+* Vous trouverez les différents fichier au format geojson dans le dossier asset
 * dans le cadre de la résolution de cet exercice, il faut utiliser les fichiers **admin_level_4.geojson** (régions) et  **admin_level_6.geojson**
