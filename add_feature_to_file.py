@@ -2,15 +2,15 @@ import os
 import sys
 
 from dependencies import geojson
-from dependencies import std
+from dependencies import check
 
 def check_and_format_args():
     if len(sys.argv) < 4:
         print('Missing arguments (expected at least 2)')
         sys.exit(1)
 
-    std.files_exist(sys.argv[1], sys.argv[3])
-    sys.argv[2] = std.convert_integer(sys.argv[2])
+    check.files_exist(sys.argv[1], sys.argv[3])
+    sys.argv[2] = check.convert_integer(sys.argv[2])
 
 def get_feature(file_path, feature_id):
     data = geojson.get_geojson(file_path)

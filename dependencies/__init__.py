@@ -1,4 +1,4 @@
-__all__ = ['geojson', 'std']
+__all__ = ['geojson', 'check']
 
 import dependencies.geojson
-import dependencies.std
+import dependencies.check
