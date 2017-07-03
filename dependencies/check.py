@@ -3,15 +3,11 @@ import sys
 
 def files_exist(*paths):
     for path in paths:
-        if os.path.exists(path) is False:
-            print(f'{path} doesn\'t exist')
-            sys.exit(1)
+        if not os.path.exists(path):
+            raise Exception(f'{path} doesn\'t exist')
 
 def convert_integer(integer):
     try:
-        converted = int(integer)
+        return int(integer)
     except ValueError:
-        print(f'{integer} isn\'t an id')
-        sys.exit(1)
-    else:
-        return converted
+        pass

@@ -9,17 +9,18 @@ def check_and_format_args():
         print('Missing arguments (expected at least 2)')
         sys.exit(1)
 
-    check.files_exist(sys.argv[1], sys.argv[3])
-    sys.argv[2] = check.convert_integer(sys.argv[2])
+    try:
+        check.files_exist(sys.argv[1], sys.argv[3])
+    except Exception as error:
+        print(error)
+        sys.exit(1)
 
-def get_feature(file_path, feature_id):
+def get_feature(file_path, feature_iso):
     data = geojson.get_geojson(file_path)
-
-    return [f for f in data['features'] if f['id'] == feature_id][0]
+    return [f for f in data['features'] if f['properties']['ISO3166-2'] == feature_iso][0]
 
 def add_feature(file_path, feature):
     data = geojson.get_geojson(file_path)
-
     data['features'].append(feature)
     return data
 
