@@ -14,7 +14,7 @@ N'étant pas particulièrement familier du format geojson, j'ai commencé par co
 
 Pour résoudre cette exercice, j'ai donc choisi de réaliser un script python permettant de récupérer une "feature" via son id dans le fichier des régions, puis d'ajouter cette dernière à celui des provinces.
 
-Une fois cette première étape réalisé, j'ai fait en sorte que l'on puisse passer par l'intermédiare d'arguments les chemin des deux fichier ainsi que l'id de la features que l'on souhaite déplacer, rendant ainsi ce script capable de déplacer n'importe quelle "feature" d'un fichier vers un autre.
+Une fois cette première étape réalisé, j'ai fait en sorte que l'on puisse passer par l'intermédiare d'arguments les chemin des deux fichier ainsi que le code ISO 3166-2 de la features que l'on souhaite déplacer, rendant ainsi ce script capable de déplacer n'importe quelle "feature" d'un fichier vers un autre.
 
 ### Pré-requis
 
@@ -26,15 +26,15 @@ Une fois cette première étape réalisé, j'ai fait en sorte que l'on puisse pa
 
 Executer le script 'add_feature_to_file' en passant les arguments de la façon suivante:
 
-```python add_feature_to_file.py [path_to_src_file] [feature_id] [path_to_dest_file]```
+```python add_feature_to_file.py [path_to_src_file] [feature_iso_code] [path_to_dest_file]```
 
 C'est-à-dire :
 
-```python add_feature_to_file.py asset/admin_level_4.geojson 54094 asset/admin_level_6.geojson```
+```python add_feature_to_file.py asset/admin_level_4.geojson BE-BRU asset/admin_level_6.geojson```
 
 
 ### Information utiles
 
-* l'id de la Région de Bruxelles-Capitale est **54094**
+* le code ISO 3166-2 de la Région de Bruxelles-Capitale est **BE-BRU**
 * Vous trouverez les différents fichier au format geojson dans le dossier asset
 * dans le cadre de la résolution de cet exercice, il faut utiliser les fichiers **admin_level_4.geojson** (régions) et  **admin_level_6.geojson**
