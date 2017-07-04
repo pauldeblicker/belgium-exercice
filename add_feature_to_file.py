@@ -1,19 +1,16 @@
+import argparse
 import os
 import sys
 
 from dependencies import geojson
-from dependencies import check
+from dependencies import action
 
 def check_and_format_args():
-    if len(sys.argv) < 4:
-        print('Missing arguments (expected at least 2)')
-        sys.exit(1)
-
-    try:
-        check.files_exist(sys.argv[1], sys.argv[3])
-    except Exception as error:
-        print(error)
-        sys.exit(1)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('src_path', help='Source file path',  type=str, action=action.FileExist)
+    parser.add_argument('iso', help='ISO code of the feature', type=str, action=action.IsISO)
+    parser.add_argument('dest_path', help='Destination file path',  type=str, action=action.FileExist)
+    parser.parse_args()
 
 def get_feature(file_path, feature_iso):
     data = geojson.get_geojson(file_path)
